@@ -2161,10 +2161,10 @@ void abnormal_detect1(struct ofproto *p)
         {
           p->writing1=1;
           fp1=fopen("/home/lctuan/result_LoOP/training1.log","a+");
-          if (current_flow1 !=0 && current_traf1 !=0)
+          if (!(current_flow1 ==0 && current_traf1 ==0))
           fprintf(fp1, "%f,%f\n",current_flow1,current_traf1);
           fclose(fp1);
-          if (current_flow1 !=0 && current_traf1 !=0)
+          if (!(current_flow1 ==0 && current_traf1 ==0))
           p->data_counter1++;
          // p->count_1 = p->data_counter1;
           if(p->data_counter1==DATANUM)
@@ -2231,7 +2231,7 @@ void abnormal_detect1(struct ofproto *p)
       else 
       {
           gettimeofday(&start1, NULL);
-          if (current_flow1 !=0 && current_traf1 !=0)  //phần fix thêm
+          if (!(current_flow1 ==0 && current_traf1 ==0))  //phần fix thêm
           {
           p->state1->traffic_norm=normalize(current_traf1,p->traffic_mu1,p->traffic_sigma1);
           p->state1->n_flow_norm=normalize(current_flow1,p->flow_mu1,p->flow_sigma1);
@@ -2270,10 +2270,10 @@ void abnormal_detect1(struct ofproto *p)
         {
           p->writing1_p2=1;
           fp1=fopen("/home/lctuan/result_LoOP/training1_p2.log","a+");
-          if (current_flow1_p2 !=0 && current_traf1_p2 !=0)
+          if (!(current_flow1_p2 ==0 && current_traf1_p2 ==0))
           fprintf(fp1, "%f,%f\n",current_flow1_p2,current_traf1_p2);
           fclose(fp1);
-          if (current_flow1_p2 !=0 && current_traf1_p2 !=0)
+          if (!(current_flow1_p2 ==0 && current_traf1_p2 ==0))
           p->data_counter1_p2++;
          // p->count_1 = p->data_counter1;
           if(p->data_counter1_p2==DATANUM)
@@ -2342,7 +2342,7 @@ void abnormal_detect1(struct ofproto *p)
       //if not in training, predict
       else 
       {
-          if (current_flow1_p2 !=0 && current_traf1_p2 !=0)  //phần fix thêm
+          if (!(current_flow1_p2 ==0 && current_traf1_p2 ==0))  //phần fix thêm
           {
           p->state1_p2->traffic_norm=normalize(current_traf1,p->traffic_mu1_p2,p->traffic_sigma1_p2);
           p->state1_p2->n_flow_norm=normalize(current_flow1,p->flow_mu1_p2,p->flow_sigma1_p2);
@@ -2435,10 +2435,10 @@ void abnormal_detect2(struct ofproto *p)
         {
           p->writing2=1;
           fp2=fopen("/home/lctuan/result_LoOP/training2.log","a+");
-          if (current_flow2 > 0 && current_traf2 > 0)
+          if (!(current_flow2 == 0 && current_traf2 == 0))
           fprintf(fp2, "%f,%f\n",current_flow2,current_traf2);
           fclose(fp2);
-          if (current_flow2 >0 && current_traf2 >0)
+          if (!(current_flow2 == 0 && current_traf2 == 0))
           {
             p->data_counter2++;
           }
@@ -2511,7 +2511,7 @@ void abnormal_detect2(struct ofproto *p)
       else if (p->training2 ==2)
       {
           gettimeofday(&start2, NULL);
-          if (current_flow2 !=0 && current_traf2 !=0)  //phần fix thêm
+          if (!(current_flow2 ==0 && current_traf2 ==0))  //phần fix thêm
           {
           p->state2->traffic_norm=normalize(current_traf2,p->traffic_mu2,p->traffic_sigma2);
           p->state2->n_flow_norm=normalize(current_flow2,p->flow_mu2,p->flow_sigma2);
@@ -2555,10 +2555,10 @@ void abnormal_detect2(struct ofproto *p)
         {
           p->writing2_p2=1;
           fp2=fopen("/home/lctuan/result_LoOP/training2_p2.log","a+");
-          if (current_flow2_p2 > 0 && current_traf2_p2 > 0)
+          if (!(current_flow2_p2 == 0 && current_traf2_p2 == 0))
           fprintf(fp2, "%f,%f\n",current_flow2_p2,current_traf2_p2);
           fclose(fp2);
-          if (current_flow2_p2 >0 && current_traf2_p2 >0)
+          if (!(current_flow2_p2 == 0 && current_traf2_p2 == 0))
           {
             p->data_counter2_p2++;
           }
@@ -2630,9 +2630,9 @@ void abnormal_detect2(struct ofproto *p)
         }
     }
       //if not in training, predict
-      else if (p->training2 ==2)
+      else if (p->training2_p2 ==2)
       {
-          if (current_flow2_p2 !=0 && current_traf2_p2 !=0)  //phần fix thêm
+          if (!(current_flow2_p2 ==0 && current_traf2_p2 ==0) ) //phần fix thêm
           {
           p->state2->traffic_norm=normalize(current_traf2,p->traffic_mu2,p->traffic_sigma2);
           p->state2->n_flow_norm=normalize(current_flow2,p->flow_mu2,p->flow_sigma2);
@@ -2727,10 +2727,10 @@ void abnormal_detect3(struct ofproto *p)
         {
           p->writing3=1;
           fp3=fopen("/home/lctuan/result_LoOP/training3.log","a+");
-          if (current_flow3 !=0 && current_traf3 !=0)
+          if (!(current_flow3 ==0 && current_traf3 ==0))
           fprintf(fp3, "%f,%f\n",current_flow3,current_traf3);
           fclose(fp3);
-          if (current_flow3 !=0 && current_traf3 !=0)
+          if (!(current_flow3 ==0 && current_traf3 ==0))
           p->data_counter3++;
             p->count_3 = p->data_counter3;
           if(p->data_counter3==DATANUM)
@@ -2803,7 +2803,7 @@ void abnormal_detect3(struct ofproto *p)
       else if(p->training3 == 3)
       {
           gettimeofday(&start3, NULL);
-          if (current_flow3 !=0 && current_traf3 !=0)  //phần fix thêm
+          if (!(current_flow3 ==0 && current_traf3 ==0))  //phần fix thêm
           {
           p->state3->traffic_norm=normalize(current_traf3,p->traffic_mu3,p->traffic_sigma3);
           p->state3->n_flow_norm=normalize(current_flow3,p->flow_mu3,p->flow_sigma3);
@@ -2849,10 +2849,10 @@ void abnormal_detect3(struct ofproto *p)
         {
           p->writing3_p2=1;
           fp3=fopen("/home/lctuan/result_LoOP/training3_p2.log","a+");
-          if (current_flow3_p2 !=0 && current_traf3_p2 !=0)
+          if (!(current_flow3_p2 ==0 && current_traf3_p2 ==0))
           fprintf(fp3, "%f,%f\n",current_flow3_p2,current_traf3_p2);
           fclose(fp3);
-          if (current_flow3_p2 !=0 && current_traf3_p2 !=0)
+          if (!(current_flow3_p2 ==0 && current_traf3_p2 ==0))
           p->data_counter3_p2++;
            // p->count_3 = p->data_counter3;
           if(p->data_counter3_p2==DATANUM)
@@ -2924,7 +2924,7 @@ void abnormal_detect3(struct ofproto *p)
       //if not in training, predict
       else if(p->training3_p2 == 3)
       {
-          if (current_flow3_p2 !=0 && current_traf3_p2 !=0)  //phần fix thêm
+          if (!(current_flow3_p2 ==0 && current_traf3_p2 ==0))  //phần fix thêm
           {
           p->state3_p2->traffic_norm=normalize(current_traf3_p2,p->traffic_mu3_p2,p->traffic_sigma3_p2);
           p->state3_p2->n_flow_norm=normalize(current_flow3_p2,p->flow_mu3_p2,p->flow_sigma3_p2);
@@ -3033,10 +3033,10 @@ void abnormal_detect4(struct ofproto *p)
         {
           p->writing4=1;
           fp4=fopen("/home/lctuan/result_LoOP/training4.log","a+");
-          if (current_flow4 !=0 && current_traf4 !=0)
+          if (!(current_flow4 ==0 && current_traf4 ==0))
           fprintf(fp4, "%f,%f\n",current_flow4,current_traf4);
           fclose(fp4);
-          if (current_flow4 !=0 && current_traf4 !=0)
+          if (!(current_flow4 ==0 && current_traf4 ==0))
           p->data_counter4++;
           if(p->data_counter4==DATANUM)
           {
@@ -3110,7 +3110,7 @@ void abnormal_detect4(struct ofproto *p)
       else if (p->training4 == 4)
       {
           gettimeofday(&start4, NULL);
-          if (current_flow4 !=0 && current_traf4 !=0)  //phần fix thêm
+          if (!(current_flow4 ==0 && current_traf4 ==0))  //phần fix thêm
           {
           p->state4->traffic_norm=normalize(current_traf4,p->traffic_mu4,p->traffic_sigma4);
           p->state4->n_flow_norm=normalize(current_flow4,p->flow_mu4,p->flow_sigma4);
@@ -3153,10 +3153,10 @@ void abnormal_detect4(struct ofproto *p)
         {
           p->writing4_p2 = 1;
           fp4=fopen("/home/lctuan/result_LoOP/training4_p2.log","a+");
-          if (current_flow4_p2 !=0 && current_traf4_p2 !=0)
+          if (!(current_flow4_p2 ==0 && current_traf4_p2 ==0))
           fprintf(fp4, "%f,%f\n", current_flow4_p2, current_traf4_p2);
           fclose(fp4);
-          if (current_flow4_p2 !=0 && current_traf4_p2 !=0)
+          if (!(current_flow4_p2 ==0 && current_traf4_p2 ==0))
           p->data_counter4_p2++;
           if(p->data_counter4_p2 == DATANUM)
           {
@@ -3224,7 +3224,7 @@ void abnormal_detect4(struct ofproto *p)
       //if not in training, predict
       else if (p->training4_p2 == 4)
       {
-          if (current_flow4_p2 !=0 && current_traf4_p2 !=0)  //phần fix thêm
+          if (!(current_flow4_p2 ==0 && current_traf4_p2 ==0))  //phần fix thêm
           {
           p->state4_p2->traffic_norm=normalize(current_traf4_p2,p->traffic_mu4_p2,p->traffic_sigma4_p2);
           p->state4_p2->n_flow_norm=normalize(current_flow4_p2,p->flow_mu4_p2,p->flow_sigma4_p2);
@@ -3267,10 +3267,10 @@ void abnormal_detect4(struct ofproto *p)
         {
           p->writing4_p3 = 1;
           fp4=fopen("/home/lctuan/result_LoOP/training4_p3.log","a+");
-          if (current_flow4_p3 !=0 && current_traf4_p3 !=0)
+          if (!(current_flow4_p3 ==0 && current_traf4_p3 ==0))
           fprintf(fp4, "%f,%f\n", current_flow4_p3, current_traf4_p3);
           fclose(fp4);
-          if (current_flow4_p3 !=0 && current_traf4_p3 !=0)
+          if (!(current_flow4_p3 ==0 && current_traf4_p3 ==0))
           p->data_counter4_p3++;
           if(p->data_counter4_p3 == DATANUM)
           {
@@ -3338,7 +3338,7 @@ void abnormal_detect4(struct ofproto *p)
       //if not in training, predict
       else if (p->training4_p3 == 4)
       {
-          if (current_flow4_p3 !=0 && current_traf4_p3 !=0)  //phần fix thêm
+          if (!(current_flow4_p3 ==0 && current_traf4_p3 ==0))  //phần fix thêm
           {
           p->state4_p3->traffic_norm=normalize(current_traf4_p3,p->traffic_mu4_p3,p->traffic_sigma4_p3);
           p->state4_p3->n_flow_norm=normalize(current_flow4_p3,p->flow_mu4_p3,p->flow_sigma4_p3);
@@ -3432,10 +3432,10 @@ void abnormal_detect5(struct ofproto *p)
         {
           p->writing5=1;
           fp5=fopen("/home/lctuan/result_LoOP/training5.log","a+");
-          if (current_flow5 !=0 && current_traf5 !=0)
+          if (!(current_flow5 ==0 && current_traf5 ==0))
           fprintf(fp5, "%f,%f\n",current_flow5,current_traf5);
           fclose(fp5);
-          if (current_flow5 !=0 && current_traf5 !=0)
+          if (!(current_flow5 ==0 && current_traf5 ==0))
           p->data_counter5++;
           if(p->data_counter5==DATANUM)
           {
@@ -3509,7 +3509,7 @@ void abnormal_detect5(struct ofproto *p)
       else if (p->training5 == 5)
       {
           gettimeofday(&start5, NULL);
-          if (current_flow5 !=0 && current_traf5 !=0)  //phần fix thêm
+          if (!(current_flow5 ==0 && current_traf5 ==0))  //phần fix thêm
           {
           p->state5->traffic_norm=normalize(current_traf5,p->traffic_mu5,p->traffic_sigma5);
           p->state5->n_flow_norm=normalize(current_flow5,p->flow_mu5,p->flow_sigma5);
@@ -3552,10 +3552,10 @@ void abnormal_detect5(struct ofproto *p)
         {
           p->writing5_p2=1;
           fp5=fopen("/home/lctuan/result_LoOP/training5_p2.log","a+");
-          if (current_flow5_p2 !=0 && current_traf5_p2 !=0)
+          if (!(current_flow5_p2 ==0 && current_traf5_p2 ==0))
           fprintf(fp5, "%f,%f\n",current_flow5_p2,current_traf5_p2);
           fclose(fp5);
-          if (current_flow5_p2 !=0 && current_traf5_p2 !=0)
+          if (!(current_flow5_p2 ==0 && current_traf5_p2 ==0))
           p->data_counter5_p2++;
           if(p->data_counter5_p2==DATANUM)
           {
@@ -3629,7 +3629,7 @@ void abnormal_detect5(struct ofproto *p)
       else if (p->training5_p2 == 5)
       {
           gettimeofday(&start5_p2, NULL);
-          if (current_flow5_p2 !=0 && current_traf5_p2 !=0)  //phần fix thêm
+          if (!(current_flow5_p2 ==0 && current_traf5_p2 ==0))  //phần fix thêm
           {
           p->state5_p2->traffic_norm=normalize(current_traf5_p2,p->traffic_mu5_p2,p->traffic_sigma5_p2);
           p->state5_p2->n_flow_norm=normalize(current_flow5_p2,p->flow_mu5_p2,p->flow_sigma5_p2);
@@ -3651,7 +3651,7 @@ void abnormal_detect5(struct ofproto *p)
                   p->k_thres5_p2 =0;
               }
 
-          fp5= fopen("/home/lctuan/result_LoOP/update_p2.log","w+");
+          fp5= fopen("/home/lctuan/result_LoOP/update5_p2.log","w+");
           fprintf(fp5,"%f\n",p->loOP_status5_p2);
           fclose(fp5);
           }
@@ -3740,10 +3740,10 @@ void abnormal_detect6(struct ofproto *p)
         {
           p->writing6=1;
           fp6=fopen("/home/lctuan/result_LoOP/training6.log","a+");
-          if (current_flow6 !=0 && current_traf6 !=0)
+          if (!(current_flow6 ==0 && current_traf6 ==0))
           fprintf(fp6, "%f,%f\n",current_flow6,current_traf6);
           fclose(fp6);
-          if (current_flow6 !=0 && current_traf6 !=0)
+          if (!(current_flow6 ==0 && current_traf6 ==0))
           p->data_counter6++;
           if(p->data_counter6==DATANUM)
           {
@@ -3815,7 +3815,7 @@ void abnormal_detect6(struct ofproto *p)
       else if (p->training6 == 6)
       {
           gettimeofday(&start6, NULL);
-          if (current_flow6 !=0 || current_traf6 !=0)  //phần fix thêm
+          if (!(current_flow6 ==0 && current_traf6 ==0))  //phần fix thêm
           {
           p->state6->traffic_norm=normalize(current_traf6,p->traffic_mu6,p->traffic_sigma6);
           p->state6->n_flow_norm=normalize(current_flow6,p->flow_mu6,p->flow_sigma6);
@@ -3859,10 +3859,10 @@ void abnormal_detect6(struct ofproto *p)
         {
           p->writing6_p2=1;
           fp6=fopen("/home/lctuan/result_LoOP/training6_p2.log","a+");
-          if (current_flow6_p2 !=0 && current_traf6_p2 !=0)
+          if (!(current_flow6_p2 ==0 && current_traf6_p2 ==0))
           fprintf(fp6, "%f,%f\n",current_flow6_p2,current_traf6_p2);
           fclose(fp6);
-          if (current_flow6_p2 !=0 && current_traf6_p2 !=0)
+          if (!(current_flow6_p2 ==0 && current_traf6_p2 ==0))
           p->data_counter6_p2++;
           if(p->data_counter6_p2==DATANUM)
           {
@@ -3934,7 +3934,7 @@ void abnormal_detect6(struct ofproto *p)
       else if (p->training6_p2 == 6)
       {
           gettimeofday(&start6_p2, NULL);
-          if (current_flow6_p2 !=0 || current_traf6_p2 !=0)  //phần fix thêm
+          if (!(current_flow6_p2 ==0 && current_traf6_p2 ==0))  //phần fix thêm
           {
           p->state6_p2->traffic_norm=normalize(current_traf6_p2,p->traffic_mu6_p2,p->traffic_sigma6_p2);
           p->state6_p2->n_flow_norm=normalize(current_flow6_p2,p->flow_mu6_p2,p->flow_sigma6_p2);
@@ -3978,10 +3978,10 @@ void abnormal_detect6(struct ofproto *p)
         {
           p->writing6_p3=1;
           fp6=fopen("/home/lctuan/result_LoOP/training6_p3.log","a+");
-          if (current_flow6_p3 !=0 && current_traf6_p3 !=0)
+          if (!(current_flow6_p3 ==0 && current_traf6_p3 ==0))
           fprintf(fp6, "%f,%f\n",current_flow6_p3,current_traf6_p3);
           fclose(fp6);
-          if (current_flow6_p3 !=0 && current_traf6_p3 !=0)
+          if (!(current_flow6_p3 ==0 && current_traf6_p3 ==0))
           p->data_counter6_p3++;
           if(p->data_counter6_p3==DATANUM)
           {
@@ -4053,7 +4053,7 @@ void abnormal_detect6(struct ofproto *p)
       else if (p->training6_p3 == 6)
       {
           gettimeofday(&start6_p3, NULL);
-          if (current_flow6_p3 !=0 || current_traf6_p3 !=0)  //phần fix thêm
+          if (!(current_flow6_p3 ==0 && current_traf6_p3 ==0))  //phần fix thêm
           {
           p->state6_p3->traffic_norm=normalize(current_traf6_p3,p->traffic_mu6_p3,p->traffic_sigma6_p3);
           p->state6_p3->n_flow_norm=normalize(current_flow6_p3,p->flow_mu6_p3,p->flow_sigma6_p3);

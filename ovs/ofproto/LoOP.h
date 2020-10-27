@@ -1,7 +1,7 @@
 #ifndef __LoOP_h__
 #define __LoOP_h__
 
-#define DATANUM 600
+#define DATANUM 1200
 #define K 6
 #define lamda 3
 
